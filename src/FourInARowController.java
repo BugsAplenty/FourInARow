@@ -83,17 +83,17 @@ public class FourInARowController implements Initializable {
     @FXML
     private void gameBoardClicked(MouseEvent e) {
         gridPosX = (int) e.getX()/TILE_SIZE;
-        gridPosY = (int) e.getY()/TILE_SIZE;
+        gridPosY = getColTop(gridPoints, gridPosX);
         if (currentPlayer == Player.RED) {
             playerTextField.setText("RED");
-            if (gridPoints[gridPosY][gridPosX]) {
+            if (gridPosY == 0) {
                 return;
             } else {
                 movePlayer1();
             }
         } else if(currentPlayer == Player.GOLD) {
             playerTextField.setText("GOLD");
-            if (gridPoints[gridPosY][gridPosX]) {
+            if (gridPosY == 0) {
                 return;
             } else {
                 movePlayer2();
@@ -102,6 +102,14 @@ public class FourInARowController implements Initializable {
         gridPoints[gridPosY][gridPosX] = true;
         checkVictory();
         changePlayer();
+    }
+
+    private int getColTop(boolean[][] gridPoints, int gridPosX) {
+        int i = N_ROWS - 1;
+        while(gridPoints[i][gridPosX]) {
+            --i;
+        }
+        return i;
     }
 
     private void movePlayer2() {
