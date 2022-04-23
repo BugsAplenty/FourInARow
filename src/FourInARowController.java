@@ -86,26 +86,26 @@ public class FourInARowController implements Initializable {
         gridPosY = (int) e.getY()/TILE_SIZE;
         if (currentPlayer == Player.RED) {
             playerTextField.setText("RED");
-            if (gridPoints[gridPosX][gridPosY]) {
+            if (gridPoints[gridPosY][gridPosX]) {
                 return;
             } else {
                 movePlayer1();
             }
         } else if(currentPlayer == Player.GOLD) {
             playerTextField.setText("GOLD");
-            if (gridPoints[gridPosX][gridPosY]) {
+            if (gridPoints[gridPosY][gridPosX]) {
                 return;
             } else {
                 movePlayer2();
             }
         }
-        gridPoints[gridPosX][gridPosY] = true;
+        gridPoints[gridPosY][gridPosX] = true;
         checkVictory();
         changePlayer();
     }
 
     private void movePlayer2() {
-        pointsPlayer2[gridPosX][gridPosY] = true;
+        pointsPlayer2[gridPosY][gridPosX] = true;
         Circle disk = new Circle(
                 (double) TILE_SIZE * ((double) gridPosX + 0.5),
                 (double) TILE_SIZE * ((double) gridPosY + 0.5),
@@ -116,7 +116,7 @@ public class FourInARowController implements Initializable {
     }
 
     private void movePlayer1() {
-        pointsPlayer1[gridPosX][gridPosY] = true;
+        pointsPlayer1[gridPosY][gridPosX] = true;
         Circle disk = new Circle(
                 (double) TILE_SIZE * ((double) gridPosX + 0.5),
                 (double) TILE_SIZE * ((double) gridPosY + 0.5),
