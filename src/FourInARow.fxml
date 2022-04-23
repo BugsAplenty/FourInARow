@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FourInARowController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="840.0">
+        <items>
+          <Button mnemonicParsing="false" onMouseClicked="#clearButtonClicked" text="Clear" />
+        </items>
+      </ToolBar>
+      <ToolBar layoutY="760.0" prefHeight="40.0" prefWidth="840.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Turn:" />
+            <TextField fx:id="playerTextField" editable="false" text="RED" />
+         </items>
+      </ToolBar>
+      <Pane fx:id="gameBoard" layoutY="40.0" onMouseClicked="#gameBoardClicked" prefHeight="720.0" prefWidth="840.0" />
+   </children>
+</AnchorPane>
